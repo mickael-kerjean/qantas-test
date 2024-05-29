@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage("Setup") {
+            steps {
+                git(
+                    url: "git@github.com:mickael-kerjean/qantas-test.git",
+                    credentialsId: "github-com-filestash-enterprise",
+                    branch: "master"
+                )
+            }
+        }
+        stage("Build") {
+            steps {
+                sh "echo 'QFF LOGIN'"
+            }
+        }
+    }
+}
