@@ -17,8 +17,8 @@ pipeline {
                         changeset "qbr/qbr-login/**/*"
                     }
                     steps {
-                        build job: "qantas-common", parameters: [string(name: "master", value: env.BRANCH_NAME)]
-                        build job: "qantas-qbr-login", parameters: [string(name: "master", value: env.BRANCH_NAME)]
+                        build job: "qantas/qantas-common", parameters: [string(name: "master", value: env.BRANCH_NAME)]
+                        build job: "qantas/qantas-qbr-login", parameters: [string(name: "master", value: env.BRANCH_NAME)]
                     }
                 }
                 stage("qff-login") {
@@ -26,8 +26,8 @@ pipeline {
                         changeset "qff/qff-login/**/*"
                     }
                     steps {
-                        build job: "qantas-common", parameters: [string(name: "master", value: env.BRANCH_NAME)]
-                        build job: "qantas-qff-login", parameters: [string(name: "master", value: env.BRANCH_NAME)]
+                        build job: "qantas/qantas-common", parameters: [string(name: "master", value: env.BRANCH_NAME)]
+                        build job: "qantas/qantas-qff-login", parameters: [string(name: "master", value: env.BRANCH_NAME)]
                     }
                 }
             }
