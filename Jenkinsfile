@@ -8,6 +8,7 @@ pipeline {
                     credentialsId: "github-com-filestash-enterprise",
                     branch: "master"
                 )
+                scm checkout
             }
         }
         stage("Build") {
