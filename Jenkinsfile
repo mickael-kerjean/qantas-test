@@ -3,11 +3,6 @@ pipeline {
     stages {
         stage("Setup") {
             steps {
-                git(
-                    url: "git@github.com:mickael-kerjean/qantas-test.git",
-                    credentialsId: "github-com-filestash-enterprise",
-                    branch: "master"
-                )
                 scm checkout
             }
         }
