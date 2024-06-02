@@ -22,5 +22,15 @@ pipeline {
                 }
             }
         }
+        state("Release") {
+            steps {
+                unstash "build"
+                sh "ls -lah public"
+                script {
+                    readProperties(file: "public/.env").each {key, value -> env[key] = value }
+                }
+                sh "echo \"PATH: $APP\""
+            }
+        }
     }
 }
