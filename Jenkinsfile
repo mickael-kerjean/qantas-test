@@ -17,6 +17,7 @@ pipeline {
             steps {
                 // unstash "build"
                 sh """
+                #!/bin/bash
                 export APP=qbr/qbr-login"
                 echo ${env.APP}"
                 """
