@@ -18,7 +18,7 @@ pipeline {
                 }
             }
         }
-        state("Release") {
+        stage("Release") {
             steps {
                 unstash "build"
                 sh "ls -lah public"
