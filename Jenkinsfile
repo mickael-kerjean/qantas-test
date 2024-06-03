@@ -14,6 +14,10 @@ pipeline {
             }
         }
         stage("Release") {
+            environment {
+                TEST = "na"
+            }
+
             steps {
                 // unstash "build"
                  env.TEST = sh(
