@@ -14,7 +14,13 @@ pipeline {
             }
         }
         stage("Release") {
+            script {
+                env.APP = sh(script: 'echo "qbr/qbr-login"', returnStdout: true).trim()
+            }
             steps {
+                sh """
+                    echo "APP: ${env.APP}"
+                """
                 // unstash "build"
                 sh """
                 #!/bin/bash
