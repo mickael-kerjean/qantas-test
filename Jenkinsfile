@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("Setup") {
-            steps {
-                scm checkout
-            }
-        }
         stage("Build") {
             parallel {
                 stage("qbr-login") {
