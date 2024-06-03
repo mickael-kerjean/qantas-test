@@ -16,7 +16,14 @@ pipeline {
         stage("Release") {
             steps {
                 unstash "build"
-                sh "source ./public/.env && echo \"PATH: ${env.APP}\""
+                script {
+                    sh '''
+                        set -a
+                        source ./public/.env
+                        set +a
+                        env
+                    '''
+                }
                 sh "echo \"PATH: ${env.APP}\""
             }
         }
