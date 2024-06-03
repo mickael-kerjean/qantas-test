@@ -18,6 +18,7 @@ pipeline {
                 // unstash "build"
                 script {
                     sh '''
+                        #!/bin/bash
                         set -a
                         source ./qbr/qbr-login/public/.env
                         set +a
