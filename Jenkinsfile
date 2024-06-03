@@ -16,16 +16,7 @@ pipeline {
         stage("Release") {
             steps {
                 // unstash "build"
-                script {
-                    sh '''
-                        #!/bin/bash
-                        set -a
-                        source ./qbr/qbr-login/public/.env
-                        set +a
-                        env
-                    '''
-                }
-                sh "echo \"PATH: ${env.APP}\""
+                sh ". ./qbr/qbr-login/public/.env && echo ${env.APP}"
             }
         }
     }
