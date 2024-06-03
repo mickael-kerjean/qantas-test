@@ -15,7 +15,8 @@ pipeline {
         }
         stage("Release") {
             steps {
-                unstash "build"
+                // unstash "build"
+                sh "mkdir public && echo \"APP=qbr/qbr-login\" > public/.env"
                 script {
                     sh '''
                         set -a
