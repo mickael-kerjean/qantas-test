@@ -16,7 +16,18 @@ pipeline {
         stage("Release") {
             steps {
                 // unstash "build"
-                sh ". ./qbr/qbr-login/public/.env && echo ${env.APP}"
+                 env.TEST = sh(
+                     script:
+                     '''
+                     echo "TEST"
+                     ''',
+                     returnStdout: true
+                 )
+                 sh """
+                     echo ${env.BUILD_ID}
+                     echo ${env.TEST}
+                """
+                // sh ". ./qbr/qbr-login/public/.env && echo ${env.APP}"
             }
         }
     }
