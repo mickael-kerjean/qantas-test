@@ -14,24 +14,10 @@ pipeline {
             }
         }
         stage("Release") {
-            environment {
-                TEST = "na"
-            }
-
             steps {
                 // unstash "build"
-                 env.TEST = sh(
-                     script:
-                     '''
-                     echo "TEST"
-                     ''',
-                     returnStdout: true
-                 )
-                 sh """
-                     echo ${env.BUILD_ID}
-                     echo ${env.TEST}
-                """
-                // sh ". ./qbr/qbr-login/public/.env && echo ${env.APP}"
+                sh "export APP=qbr/qbr-login"
+                sh "echo ${env.APP}"
             }
         }
     }
