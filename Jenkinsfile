@@ -16,7 +16,7 @@ pipeline {
         stage("Release") {
             steps {
                 unstash "build"
-                sh ". ./public/.env && echo \"PATH: ${env.APP}\""
+                sh "source ./public/.env && echo \"PATH: ${env.APP}\""
                 sh "echo \"PATH: ${env.APP}\""
             }
         }
