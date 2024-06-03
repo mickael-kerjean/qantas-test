@@ -17,7 +17,7 @@ pipeline {
             steps {
                 unstash "build"
                 sh "ls -lah public"
-                sh ". ./public/.env echo \"PATH: $APP\""
+                sh ". ./public/.env echo \"PATH: ${env.APP}\""
             }
         }
     }
