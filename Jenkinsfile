@@ -22,5 +22,13 @@ pipeline {
                 }
             }
         }
+        stage("e2e") {
+            steps {
+                dir("qbr/qbr-login") {
+                    sh "echo 'START'"
+                    sh "npm install"
+                }
+            }
+        }
     }
 }
