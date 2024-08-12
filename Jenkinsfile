@@ -27,6 +27,7 @@ pipeline {
                 dir("qbr/qbr-login") {
                     sh "echo 'START'"
                     sh "npm install"
+                    sh "npx playwright test"
                 }
             }
         }
